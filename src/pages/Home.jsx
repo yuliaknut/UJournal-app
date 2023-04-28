@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import axios from 'axios'
 import Thumbnail from '../components/Thumbnail'
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied'
@@ -16,7 +16,7 @@ export default function Home () {
   const navigate = useNavigate();
 
   const [entries, setEntries] = useState([]); 
-  useEffect(() => {
+  useLayoutEffect(() => {
     axios.get('http://localhost:3001/entries').then((foundEntries) => {
       setEntries(foundEntries.data);
     })

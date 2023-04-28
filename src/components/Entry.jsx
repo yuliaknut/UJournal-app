@@ -48,9 +48,9 @@ const Entry = ({
             })
         };
 
-    function handleSave() {
+    async function handleSave() {
         //dispatch(edit({entryId: entry.id, newEntry: editedEntry})) <-- redux
-        axios.patch('http://localhost:3001/entries/' + id, editedEntry);
+        await axios.patch('http://localhost:3001/entries/' + id, editedEntry);
 
         setIsEditing(false);
     }
@@ -60,9 +60,9 @@ const Entry = ({
         setIsEditing(true);
     }
 
-    function handleDelete() {
+    async function handleDelete() {
         //dispatch(remove(entry.id)); <-- redux
-        axios.delete('http://localhost:3001/entries/' + id);
+        await axios.delete('http://localhost:3001/entries/' + id);
 
         return navigate("/");
     }

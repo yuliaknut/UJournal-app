@@ -30,10 +30,10 @@ function CreateArea() {
         
     }
 
-    function submitNewEntry(event) {
+    async function submitNewEntry(event) {
         event.preventDefault();
         //dispatch(add(entry)); <-- redux v.
-        axios.post('http://localhost:3001/entries', newEntry);
+        await axios.post('http://localhost:3001/entries', newEntry);
         return navigate('/');
     }
 
